@@ -13,7 +13,7 @@ Video: https://www.youtube.com/watch?v=iAerWbY7l6Y
 
 ### Web Portal (law enforcement officer)
 
-1) Visit http://3.140.162.29:4200/
+Visit http://3.140.162.29:4200/
 
 ### Mobile App
 
