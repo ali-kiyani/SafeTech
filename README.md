@@ -3,7 +3,8 @@ SafeTech
 
 ## Problem:
 
-A recent crime report showed that the safety index in Pakistan’s metropolitan cities like Karachi and Lahore is almost 45% i.e. more than half of the residents of these cities do not feel safe. And after that, culprits also escape very easily and police has to work very hard to catch them which also takes much time as well.
+A recent crime report showed that the safety index in Pakistan’s metropolitan cities like Karachi and Lahore is almost 45% i.e. more than half of the residents of these cities do not feel safe. And after that, culprits also escape very easily and police has to work very hard to catch them which also takes much time as well.</br>
+Problem Domain: "Public Safety and Security"
 
 ## Solution:
 
@@ -43,14 +44,14 @@ https://www.dropbox.com/s/0zsxonds6yko03b/app-release.apk?dl=0
 <img src="./readme_assets/web/1.jpeg" alt="Your image title" width="200"/>
 
 3) Now you are in Dashboard. All the requests will be shown here.<br/>
-"Pending" will have all the requests waiting for approval (After approval the camera search using AI will start).<br/>
+"Pending" will have all the requests waiting for approval (After approval the camera search, using AI, will start).<br/>
+(It can take sometime for processing due to AI Algorithms running)<br/>
 <img src="./readme_assets/web/2.png" alt="Your image title" width="200"/>
 
-4) For demo purpose you can see old requests that are already processed and report generated. (It can take sometime for processing due to AI Algorithms running)<br/>
-   Click on Reports<br/>
+4) For demo purpose click on "Reports" to see reports of previous requests that have been solved. 
    <img src="./readme_assets/web/6.png" alt="Your image title" width="200"/>
 
-5) Click on View on Map to see the outcome of the request. <br/>
+5) Click on View on Map to see the outcome of the "request". <br/>
    <img src="./readme_assets/web/3.png" alt="Your image title" width="600"/>
 
 6) The red markings show where the person was detected. (Since the cameras would be in whole Pakistan we can use map so we can see exact trace)<br/>
