@@ -48,7 +48,7 @@ https://www.dropbox.com/s/0zsxonds6yko03b/app-release.apk?dl=0
 (It can take sometime for processing a request due to AI Algorithms running)<br/>
 <img src="./readme_assets/web/2.png" alt="Your image title" width="200"/>
 
-4) For demo purpose click on "Reports" to see reports of previous requests that have been solved. 
+4) For demo purpose click on "Reports" to see reports of previous requests that have been solved. </br>
    <img src="./readme_assets/web/6.png" alt="Your image title" width="200"/>
 
 5) Click on View on Map to see the outcome of the "request". <br/>
