@@ -43,19 +43,19 @@ https://www.dropbox.com/s/0zsxonds6yko03b/app-release.apk?dl=0
 <img src="./readme_assets/web/1.jpeg" alt="Your image title" width="200"/>
 
 3) Now you are in Dashboard. All the requests will be shown here.<br/>
-"Pending" will have all the requests waiting for approval (After approval the camera search using AI will start).
+"Pending" will have all the requests waiting for approval (After approval the camera search using AI will start).<br/>
 <img src="./readme_assets/web/2.png" alt="Your image title" width="200"/>
 
-4) For demo purpose you can see old requests that are already processed and report generated. (It can take sometime for processing due to AI Algorithms running)
-   Click on Reports
+4) For demo purpose you can see old requests that are already processed and report generated. (It can take sometime for processing due to AI Algorithms running)<br/>
+   Click on Reports<br/>
    <img src="./readme_assets/web/6.png" alt="Your image title" width="200"/>
 
-5) Click on View on Map to see the outcome of the request. 
+5) Click on View on Map to see the outcome of the request. <br/>
    <img src="./readme_assets/web/3.png" alt="Your image title" width="200"/>
 
-6) The red markings show where the person was detected. (Since the cameras would be in whole Pakistan we can use map so we can see exact trace)
+6) The red markings show where the person was detected. (Since the cameras would be in whole Pakistan we can use map so we can see exact trace)<br/>
    <img src="./readme_assets/web/4.png" alt="Your image title" width="200"/>
 
 7) Click on red markings and the CCTV images of detected person will show from that area<br/>
-   Click on picture to see fullscren and press arrow keys to see other pictures
+   Click on picture to see fullscren and press arrow keys to see other pictures<br/>
    <img src="./readme_assets/web/6.png" alt="Your image title" width="200"/>
