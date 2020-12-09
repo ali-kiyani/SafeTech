@@ -17,7 +17,7 @@ Video: https://www.youtube.com/watch?v=iAerWbY7l6Y
 
 ### Mobile App
 
-Download the Android/IOS App from to submit a complaint
+Download the Android/IOS App to submit a complaint<br/>
 https://www.dropbox.com/s/0zsxonds6yko03b/app-release.apk?dl=0
 
 ### Complaint Registration
