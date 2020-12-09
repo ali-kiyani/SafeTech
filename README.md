@@ -3,11 +3,10 @@ SafeTech
 
 ## Problem:
 
-Child kidnapping, women harassment and robberies are on the rise in Pakistan. Incase of such incidents, the delay in the reporting of the case and old searching techniques used by the police makes it harder to find the person.
+A recent crime report showed that the safety index in Pakistan’s metropolitan cities like Karachi and Lahore is almost 45% i.e. more than half of the residents of these cities do not feel safe. And after that, culprits also escape very easily and police has to work very hard to catch them which also takes much time as well.
 
 ## Solution:
-
-A recent crime report showed that the safety index in Pakistan’s metropolitan cities like Karachi and Lahore is almost 45% i.e. more than half of the residents of these cities do not feel safe. The crime rates in Pakistan have been on the rise and certain areas in particular have been in the grips of an epidemic of child kidnapping, women harassment and robberies. Everyone is living in a state of continuous fear and outrage. Not only that if any of such incident occurs, the delay in the reporting of the case and old searching techniques used by the police makes it harder to find the person. The time after an incident occurs is very important, slightest delay can be disastrous. 
+In order to overcome this problem, we developed a system named as "Smart Find", which enables every individual to register the case of any mishap using our mobile app. This system works on the public-private partnership for the cameras installed i.e. Cameras installed by Govternment and cameras installed by public. After approval of case from Law Enforcement Officer, an automated smart search is initiated within that area using the cameras installed. After successful search, a report is generated which then assist the law enforcement officer to identify and track the person for which they are looking for. 
 
 Video: https://www.youtube.com/watch?v=iAerWbY7l6Y
 
