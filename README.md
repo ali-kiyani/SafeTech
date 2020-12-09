@@ -8,7 +8,7 @@ Problem Domain: "Public Safety and Security"
 
 ## Solution:
 
-In order to overcome this problem, we developed a system named as "Smart Find", which enables every individual to register the case of any mishap using our mobile app. This system works on the public-private partnership for the cameras installed i.e. Cameras installed by Govternment and cameras installed by public. After approval of case from Law Enforcement Officer, an automated smart search is initiated within that area using the cameras installed. After successful search, a report is generated which then assist the law enforcement officer to identify and track the person for which they are looking for. 
+In order to overcome this problem, we developed a system named as "Smart Find", which enables every individual to register the case of any mishap using our mobile app. This system works on the public-private partnership for the cameras installed i.e. Cameras installed by Government and cameras installed by public. After approval of case from Law Enforcement Officer, an automated smart search is initiated within that area using the cameras installed. After successful search, a report is generated which then assist the law enforcement officer to identify and track the person for which they are looking for. 
 
 Video: https://www.youtube.com/watch?v=iAerWbY7l6Y
 
@@ -44,8 +44,8 @@ https://www.dropbox.com/s/0zsxonds6yko03b/app-release.apk?dl=0
 <img src="./readme_assets/web/1.jpeg" alt="Your image title" width="200"/>
 
 3) Now you are in Dashboard. All the requests will be shown here.<br/>
-"Pending" will have all the requests waiting for approval (After approval the camera search, using AI, will start).<br/>
-(It can take sometime for processing due to AI Algorithms running)<br/>
+"Pending" will show the requests waiting for approval (After approval the camera search, using AI, will start).<br/>
+(It can take sometime for processing a request due to AI Algorithms running)<br/>
 <img src="./readme_assets/web/2.png" alt="Your image title" width="200"/>
 
 4) For demo purpose click on "Reports" to see reports of previous requests that have been solved. 
