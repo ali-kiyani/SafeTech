@@ -11,9 +11,11 @@ A recent crime report showed that the safety index in Pakistan’s metropolitan 
 
 Video: https://www.youtube.com/watch?v=iAerWbY7l6Y
 
-## Getting Started
+### Web Portal (law enforcement officer)
 
-### Prerequisites
+1) Visit http://3.140.162.29:4200/
+
+### Mobile App
 
 Download the Android/IOS App from to submit a complaint
 https://www.dropbox.com/s/0zsxonds6yko03b/app-release.apk?dl=0
