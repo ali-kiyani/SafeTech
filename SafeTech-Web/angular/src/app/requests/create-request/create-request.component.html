@@ -1,0 +1,204 @@
+<form
+  class="form-horizontal"
+  autocomplete="off"
+  #createRequestForm="ngForm"
+  (ngSubmit)="save()"
+>
+  <abp-modal-header
+    [title]="'CreateNewRequest' | localize"
+    (onCloseClick)="bsModalRef.hide()"
+  ></abp-modal-header>
+  <div class="modal-body">
+    <tabset>
+      <tab [heading]="'Details' | localize" class="pt-3 px-2">
+        <div class="form-group row required">
+            <label class="col-md-3 col-form-label" for="cnic">
+              {{ "CNIC" | localize }}
+            </label>
+            <div class="col-md-9">
+              <input
+                type="number"
+                class="form-control"
+                name="cnic"
+                id="cnic"
+                required
+                minlength="13"
+                maxlength="13"
+                [(ngModel)]="request.cnic"
+                #cnicModel="ngModel"
+                #cnicEl
+              />
+              <abp-validation-summary
+                [control]="cnicModel"
+                [controlEl]="cnicEl"
+              ></abp-validation-summary>
+            </div>
+          </div>
+        <div class="form-group row required">
+          <label class="col-md-3 col-form-label" for="name">
+            {{ "Name" | localize }}
+          </label>
+          <div class="col-md-9">
+            <input
+              type="text"
+              class="form-control"
+              name="name"
+              id="name"
+              required
+              minlength="2"
+              maxlength="32"
+              [(ngModel)]="request.name"
+              #nameModel="ngModel"
+              #nameEl
+            />
+            <abp-validation-summary
+              [control]="nameModel"
+              [controlEl]="nameEl"
+            ></abp-validation-summary>
+          </div>
+        </div>
+        <div class="form-group row required">
+          <label class="col-md-3 col-form-label" for="address">
+            {{ "Address" | localize }}
+          </label>
+          <div class="col-md-9">
+            <textarea
+              type="text"
+              class="form-control"
+              name="address"
+              id="address"
+              [(ngModel)]="request.address"
+            >
+            </textarea>
+          </div>
+        </div>
+        <div class="form-group row required">
+          <label class="col-md-3 col-form-label" for="city">
+              {{ "City" | localize }}
+          </label>
+          <div class="col-md-5">
+              <select class="form-control" name="city" [(ngModel)]="request.cityId" #city (change)="cityChanged(city.value)">
+                <option [value]="0" [disabled]="true">--Select--</option>
+                <option *ngFor="let city of cities" [value]="city.id">{{city.name}}</option>
+              </select>
+              <abp-validation-summary [control]="lngModel" [controlEl]="lngEl"></abp-validation-summary>
+          </div>
+      </div>
+        <div class="form-group row required">
+          <label class="col-md-3 col-form-label" for="lat">
+            {{ "Lat" | localize }}
+          </label>
+          <div class="col-md-5">
+            <input
+              type="number"
+              class="form-control"
+              name="lat"
+              id="lat"
+              required
+              [(ngModel)]="request.lat"
+              [disabled] = "true"
+              #latModel="ngModel"
+              #latEl
+            />
+            <abp-validation-summary
+              [control]="latModel"
+              [controlEl]="latEl"
+            ></abp-validation-summary>
+          </div>
+          <div class="col-md-4">
+            <a href="javascript:void(0);" (click)="pointLocationOnMap()">Point location on Map &nbsp;
+            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+          </a>
+        </div>
+        </div>
+        <div class="form-group row required">
+          <label class="col-md-3 col-form-label" for="lng">
+            {{ "Lng" | localize }}
+          </label>
+          <div class="col-md-5">
+            <input
+              type="number"
+              class="form-control"
+              name="lng"
+              id="lng"
+              required
+              [(ngModel)]="request.lng"
+              [disabled] = "true"
+              #lngModel="ngModel"
+              #lngEl
+            />
+            <abp-validation-summary
+              [control]="lngModel"
+              [controlEl]="lngEl"
+            ></abp-validation-summary>
+          </div>
+        </div>
+        <div class="form-group row required">
+          <label class="col-md-3 col-form-label" for="startTime">
+            {{ "StartTime" | localize }}
+          </label>
+          <div class="col-md-5">
+            <input
+              type="datetime-local"
+              class="form-control"
+              name="startTime"
+              id="startTime"
+              required
+              [(ngModel)]="request.startTime"
+              #startTimeModel="ngModel"
+              #startTimeEl
+            />
+            <abp-validation-summary
+              [control]="startTimeModel"
+              [controlEl]="startTimeEl"
+            ></abp-validation-summary>
+          </div>
+        </div>
+        <div class="form-group row required">
+          <label class="col-md-3 col-form-label" for="endTime">
+            {{ "EndTime" | localize }}
+          </label>
+          <div class="col-md-5">
+            <input
+              type="datetime-local"
+              class="form-control"
+              name="endTime"
+              id="endTime"
+              required
+              [(ngModel)]="request.endTime"
+              #endTimeModel="ngModel"
+              #endTimeEl
+            />
+            <abp-validation-summary
+              [control]="endTimeModel"
+              [controlEl]="endTimeEl"
+            ></abp-validation-summary>
+          </div>
+        </div>
+        <div class="form-group row mb-0">
+            <label class="col-md-3 col-form-label" for="description">
+              {{ "RequestDescription" | localize }}
+            </label>
+            <div class="col-md-9">
+              <textarea
+                type="text"
+                class="form-control"
+                name="description"
+                id="description"
+                [(ngModel)]="request.description"
+              >
+              </textarea>
+            </div>
+          </div>
+          <div class="form-group row mb-0">
+            <input type="file" (change)="onFileChanged($event)">
+          </div>
+      </tab>
+    </tabset>
+  </div>
+  <abp-modal-footer
+    [cancelDisabled]="saving"
+    [saveDisabled]="!createRequestForm.form.valid || saving"
+    (onCancelClick)="bsModalRef.hide()"
+  ></abp-modal-footer>
+</form>

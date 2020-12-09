@@ -1,0 +1,30 @@
+<abp-modal-header [title]="l('RequestDetails', request.name)" (onCloseClick)="bsModalRef.hide()"></abp-modal-header>
+<div class="modal-body">
+    <tabset>
+      <tab [heading]="'Description' | localize" class="pt-3 px-2">
+        {{ requestDetails.description }}
+    </tab>
+        <tab [heading]="'Images' | localize" class="pt-3 px-2">
+            <div class="container">
+                <div class="row" *ngIf="loaded==true">
+                  <div class="col-md-4" *ngFor="let image of requestDetails.images">
+                    <div class="thumbnail">
+                      <a>
+                        <img src="{{requestImageUrl+request.id+'/'+image}}" alt="Lights" class="img-rounded set-img">
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </tab>
+    </tabset>
+</div>
+<div class="modal-footer justify-content-between">
+    <button
+      type="button"
+      class="btn btn-default"
+      (click)="bsModalRef.hide()"
+    >
+      {{ "Close" | localize }}
+    </button>
+</div>

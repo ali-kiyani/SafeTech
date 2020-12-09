@@ -1,0 +1,92 @@
+<form class="form-horizontal" autocomplete="off" #createInstallationForm="ngForm" (ngSubmit)="save()">
+    <abp-modal-header [title]="'CreateNewInstallation' | localize" (onCloseClick)="bsModalRef.hide()">
+    </abp-modal-header>
+    <div class="modal-body">
+        <div class="form-group row required">
+            <label class="col-md-3 col-form-label" for="make">
+                {{ "Make" | localize }}
+            </label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" name="make" id="make" required maxlength="50"
+                    [(ngModel)]="installation.make" #makeModel="ngModel" #makeEl />
+                <abp-validation-summary [control]="makeModel" [controlEl]="makeEl"></abp-validation-summary>
+            </div>
+        </div>
+        <div class="form-group row required">
+            <label class="col-md-3 col-form-label" for="serial">
+                {{ "Serial" | localize }}
+            </label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" name="serial" id="serial" required maxlength="32"
+                    [(ngModel)]="installation.serial" #serialModel="ngModel" #serialEl />
+                <abp-validation-summary [control]="serialModel" [controlEl]="serialEl"></abp-validation-summary>
+            </div>
+        </div>
+        <div class="form-group row required">
+            <label class="col-md-3 col-form-label" for="address">
+                {{ "Address" | localize }}
+            </label>
+            <div class="col-md-9">
+                <textarea type="text" class="form-control" name="address" id="address"
+                    [(ngModel)]="installation.address">
+              </textarea>
+            </div>
+        </div>
+        <div class="form-group row required">
+            <label class="col-md-3 col-form-label" for="city">
+                {{ "City" | localize }}
+            </label>
+            <div class="col-md-5">
+                <select class="form-control" name="city" [(ngModel)]="installation.cityId" #city (change)="cityChanged(city.value)">
+                    <option [value]="0" [disabled]="true">--Select--</option>
+                    <option *ngFor="let city of cities" [value]="city.id">{{city.name}}</option>
+                </select>
+                <abp-validation-summary [control]="lngModel" [controlEl]="lngEl"></abp-validation-summary>
+            </div>
+        </div>
+        <div class="form-group row required">
+            <label class="col-md-3 col-form-label" for="lat">
+                {{ "Lat" | localize }}
+            </label>
+            <div class="col-md-5">
+                <input type="number" class="form-control" name="lat" id="lat" required [(ngModel)]="installation.lat"
+                    [disabled]="true" #latModel="ngModel" #latEl />
+                <abp-validation-summary [control]="latModel" [controlEl]="latEl"></abp-validation-summary>
+            </div>
+            <div class="col-md-4">
+                <a href="javascript:void(0);" (click)="pointLocationOnMap()">Point location on Map &nbsp;
+                    <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+        <div class="form-group row required">
+            <label class="col-md-3 col-form-label" for="lng">
+                {{ "Lng" | localize }}
+            </label>
+            <div class="col-md-5">
+                <input type="number" class="form-control" name="lng" id="lng" required [(ngModel)]="installation.lng"
+                    [disabled]="true" #lngModel="ngModel" #lngEl />
+                <abp-validation-summary [control]="lngModel" [controlEl]="lngEl"></abp-validation-summary>
+            </div>
+        </div>
+        <div class="form-group row required">
+            <label class="col-md-3 col-form-label">
+              {{ "IsActive" | localize }}
+            </label>
+            <div class="col-md-9">
+              <div class="custom-control custom-checkbox">
+                <input
+                  type="checkbox"
+                  class="custom-control-input"
+                  name="isActive"
+                  id="isActive"
+                  [(ngModel)]="isActive"
+                />
+                <label class="custom-control-label mt-2" for="isActive"></label>
+              </div>
+            </div>
+          </div>
+    </div>
+    <abp-modal-footer [cancelDisabled]="saving" [saveDisabled]="!createInstallationForm.form.valid || saving"
+        (onCancelClick)="bsModalRef.hide()"></abp-modal-footer>
+</form>

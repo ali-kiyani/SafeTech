@@ -1,0 +1,37 @@
+<div [@routerTransition]>
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-6">
+          <h1>R#{{ requestId }}</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="15">
+    <agm-marker [latitude]="metadata.request.lat" [longitude]="metadata.request.lng"
+      [iconUrl]="{url: getIcon(), scaledSize: {height: 20, width: 20}}" (markerClick)="clickedMarker(infowindow1)">
+      <agm-info-window [disableAutoPan]="true" #infowindow1>
+        <div>
+          <b>Case Initiated Here</b>
+          <br>
+          R#{{ metadata.request.id }}
+          <br>
+          {{"Description" | localize}}: {{ metadata.request.description }}
+        </div>
+      </agm-info-window>
+    </agm-marker>
+    <agm-marker *ngFor="let detail of metadata.processedDetails" [latitude]="detail.installations.lat"
+      [longitude]="detail.installations.lng" (markerClick)="clickedMarker(infowindow2)">
+      <agm-info-window [disableAutoPan]="true" #infowindow2>
+        <div>
+          {{"Time" | localize}}:&nbsp;{{detail.inVisionTime | date: 'dd/MM/yyyy hh:mm a'}}
+          <br>
+          {{"Location" | localize}}:&nbsp;{{detail.installations.address}}
+          <br>
+            <img class="thumbnail-1" src="{{processedImageUrl+metadata.request.id+'/'+detail.fileName}}" (click)="openImage(detail)"/>
+        </div>
+      </agm-info-window>
+    </agm-marker>
+  </agm-map>
+</div>

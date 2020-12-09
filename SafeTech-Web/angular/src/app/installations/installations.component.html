@@ -1,0 +1,193 @@
+<tabset>
+  <tab id="list" [heading]="'List' | localize" class="pt-3 px-2">
+    <div [@routerTransition]>
+      <section class="content-header">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-6">
+              <h1>{{ "Installations" | localize }}</h1>
+            </div>
+            <div class="col-6 text-right">
+              <div class="row">
+                <div class="col-10 text-right">
+                  <select class="form-control" name="city" (change)="listCityChange()" [(ngModel)]="selectedCity">
+                    <option [value]="0">--All Cities Selected--</option>
+                    <option *ngFor="let city of cities" [value]="city.id">{{city.name}}</option>
+                  </select>
+                </div>
+                <div class="col-2 text-right">
+                  <a href="javascript:;" class="btn bg-blue" (click)="createInstallation()">
+                    <i class="fa fa-plus-square"></i>
+                    {{ "Create" | localize }}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="content px-2">
+        <div class="container-fluid">
+          <div class="card">
+            <div class="card-header">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <button type="button" class="btn bg-blue" (click)="getDataPage(1)">
+                    <i class="fas fa-search"></i>
+                  </button>
+                </div>
+                <input type="text" class="form-control" name="keyword" [placeholder]="'SearchWithThreeDot' | localize"
+                  [(ngModel)]="keyword" (keyup.enter)="getDataPage(1)" />
+              </div>
+            </div>
+            <div class="card-body table-responsive p-0">
+              <table class="table table-hover text-nowrap" [busy]="isTableLoading">
+                <thead class="bg-light">
+                  <tr>
+                    <th>{{ "Make" | localize }}</th>
+                    <th>{{ "Serial" | localize }}</th>
+                    <th>{{ "Status" | localize }}</th>
+                    <th>{{ "City" | localize }}</th>
+                    <th></th>
+                    <th>{{ "Actions" | localize }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="
+                          let installation of installations
+                            | paginate
+                              : {
+                                  id: 'server',
+                                  itemsPerPage: pageSize,
+                                  currentPage: pageNumber,
+                                  totalItems: totalItems
+                                }
+                        ">
+                    <td>{{ installation.make }}</td>
+                    <td>{{ installation.serial }}</td>
+                    <td>
+                      <span class="badge badge-success mx-1" *ngIf="installation.status == 1">
+                        {{ "ACTIVE" | localize }}
+                      </span>
+                      <span class="badge badge-warning mx-1" *ngIf="installation.status == 2">
+                        {{ "INACTIVE" | localize }}
+                      </span>
+                      <span class="badge badge-danger mx-1" *ngIf="installation.status == 3">
+                        {{ "MALFUNCTION" | localize }}
+                      </span>
+                    </td>
+                    <td>{{ installation.city.name }}</td>
+
+                    <td>
+                      <a href="javascript:;" (click)="viewInMap(installation)"><i
+                        class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;{{"ViewInMap" | localize}}</a>
+                    </td>
+
+                    <td>
+                     <!-- <div class="dropdown">
+
+                        <a type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+                          aria-expanded="false"><i class="fas fa-ellipsis-v"></i></a>
+
+                        <div class="dropdown-menu dropdown-primary">
+                          <a class="dropdown-item" (click)="viewInMap(installation)"><i
+                              class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;{{"ViewInMap" | localize}}</a>
+                              <a *ngIf="installation.status == 2" class="dropdown-item" (click)="changeStatus(installation, 1)"><i
+                                class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;{{"Activate" | localize}}</a>
+                              <a *ngIf="installation.status == 1" class="dropdown-item" (click)="changeStatus(installation, 2)"><i
+                                class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;{{"Deactivate" | localize}}</a>
+                              <a class="dropdown-item" (click)="changeStatus(installation, 3)"><i
+                                class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;{{"Malfunction" | localize}}</a>
+                          </div>
+                      </div>-->
+                       <button *ngIf="installation.status != 1"
+                            type="button"
+                            class="btn btn-sm bg-success"
+                            (click)="changeStatus(installation, 1)"
+                          >
+                            <i class="fas fa-pencil-alt"></i>
+                            {{ "Activate" | localize }}
+                          </button>
+                          <button *ngIf="installation.status == 1"
+                            type="button"
+                            class="btn btn-sm bg-warning mx-2"
+                            (click)="changeStatus(installation, 2)"
+                          >
+                            <i class="fas fa-trash"></i>
+                            {{ "Deactivate" | localize }}
+                          </button>
+                          <button *ngIf="installation.status != 3"
+                          type="button"
+                          class="btn btn-sm bg-danger mx-2"
+                          (click)="changeStatus(installation, 3)"
+                        >
+                          <i class="fas fa-trash"></i>
+                          {{ "Malfunction" | localize }}
+                        </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="card-footer bg-light border-top">
+              <div class="row">
+                <div class="col-sm-4 col-12 text-sm-left text-center">
+                  <button class="btn btn-secondary" (click)="refresh()">
+                    <i class="fas fa-redo-alt"></i>
+                  </button>
+                </div>
+                <div class="col-sm-4 col-12 text-center">
+                  <p class="mb-0 my-2">
+                    {{ "TotalRecordsCount" | localize: totalItems }}
+                  </p>
+                </div>
+                <div class="col-sm-4 col-12">
+                  <div class="float-sm-right m-auto">
+                    <abp-pagination-controls id="server" (pageChange)="getDataPage($event)">
+                    </abp-pagination-controls>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </tab>
+  <tab [heading]="'Map' | localize" class="pt-3 px-2">
+    <div [@routerTransition]>
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-6">
+            <h1>{{ "Installations" | localize }}</h1>
+          </div>
+          <div class="col-6 text-right">
+            <div class="row">
+              <div class="col-10 text-right">
+                <select class="form-control" name="city" (change)="mapCityChange()" [(ngModel)]="selectedCity">
+                  <option [value]="0">--All Cities Selected--</option>
+                  <option *ngFor="let city of cities" [value]="city.id">{{city.name}}</option>
+                </select>
+              </div>
+              <div class="col-2 text-right">
+                <a href="javascript:;" class="btn bg-blue" (click)="createInstallation()">
+                  <i class="fa fa-plus-square"></i>
+                  {{ "Create" | localize }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="12">
+      <agm-marker *ngFor="let installation of installations" 
+      [latitude]="installation.lat" 
+      [longitude]="installation.lng" 
+      [iconUrl]="{url: getIcon(installation), scaledSize: {height: 30, width: 40}}"></agm-marker>
+    </agm-map>
+  </div>
+  </tab>
+</tabset>

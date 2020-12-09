@@ -1,0 +1,147 @@
+<div [@routerTransition]>
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-6">
+          <h1>{{ "Requests" | localize }}</h1>
+        </div>
+        <div class="col-6 text-right">
+          <div class="row">
+            <div class="col-10 text-right">
+              <select class="form-control" name="city" (change)="listCityChange()" [(ngModel)]="selectedCity">
+                <option [value]="0">--All Cities Selected--</option>
+                <option *ngFor="let city of cities" [value]="city.id">{{city.name}}</option>
+              </select>
+            </div>
+            <div class="col-2 text-right">
+              <a href="javascript:;" class="btn bg-blue" (click)="createRequest()">
+                <i class="fa fa-plus-square"></i>
+                {{ "Create" | localize }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="content px-2">
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-header">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <button type="button" class="btn bg-blue" (click)="getDataPage(1)">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+            <input type="text" class="form-control" name="keyword" [placeholder]="'SearchWithThreeDot' | localize"
+              [(ngModel)]="keyword" (keyup.enter)="getDataPage(1)" />
+          </div>
+        </div>
+        <div class="card-body table-responsive p-0">
+          <table class="table table-hover text-nowrap" [busy]="isTableLoading">
+            <thead class="bg-light">
+              <tr>
+                <th>{{ "RequestId" | localize }}</th>
+                <th>{{ "CNIC" | localize }}</th>
+                <th>{{ "Name" | localize }}</th>
+                <th>{{ "City" | localize }}</th>
+                <th>{{ "Status" | localize }}</th>
+                <th>{{ "StartTime" | localize }}</th>
+                <th>{{ "EndTime" | localize }}</th>
+                <th>{{ "Actions" | localize }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="
+                    let request of requests
+                      | paginate
+                        : {
+                            id: 'server',
+                            itemsPerPage: pageSize,
+                            currentPage: pageNumber,
+                            totalItems: totalItems
+                          }
+                  ">
+                <td>R#{{ request.id }}</td>
+                <td>{{ request.cnic }}</td>
+                <td>{{ request.name }}</td>
+                <td>{{ request.city.name }}</td>
+                <td>
+                  <span class="badge badge-info mx-1" *ngIf="request.status.id == 4">
+                    {{ request.status.status }}
+                  </span>
+                  <span class="badge badge-success mx-1" *ngIf="request.status.id == 3">
+                    {{ request.status.status }}
+                  </span>
+                  <span class="badge badge-danger mx-1" *ngIf="request.status.id == 2">
+                    {{ request.status.status }}
+                  </span>
+                </td>
+                <td>{{ request.startTime | date: 'dd/MM/yyyy hh:mm a'}}</td>
+                <td>{{ request.endTime | date: 'dd/MM/yyyy hh:mm a' }}</td>
+
+                  <!--<div class="dropdown">
+
+
+                    <a type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+                      aria-expanded="false"><i class="fas fa-ellipsis-v"></i></a>
+
+
+                    <div class="dropdown-menu dropdown-primary">
+                      <a class="dropdown-item" (click)="approveRequest(request)"><i
+                          class="fa fa-check"></i>&nbsp;&nbsp;{{"Approve" | localize}}</a>
+                      <a class="dropdown-item" (click)="declineRequest(request)"><i
+                          class="fa fa-times"></i>&nbsp;&nbsp;{{"Decline" | localize}}</a>
+                      <a class="dropdown-item" (click)="getDetails(request)"><i
+                          class="fa fa-info"></i>&nbsp;&nbsp;{{"Details" | localize}}</a>
+                     </div>
+                  </div> -->
+                  <td>
+                   <button *ngIf="request.status.status==='PENDING'"
+                      type="button"
+                      class="btn btn-sm bg-success"
+                      (click)="approveRequest(request)"
+                    >
+                      <i class="fa fa-check"></i>
+                      {{ "Approve" | localize }}
+                    </button>
+                    <button *ngIf="request.status.status==='PENDING'"
+                      type="button"
+                      class="btn btn-sm bg-danger mx-2"
+                      (click)="declineRequest(request)"
+                    >
+                      <i class="fa fa-times"></i>
+                      {{ "Decline" | localize }}
+                    </button>
+                    <a href="javascript:;" (click)="getDetails(request)"><i
+                      class="fa fa-info"></i>&nbsp;&nbsp;{{"Details" | localize}}</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer bg-light border-top">
+          <div class="row">
+            <div class="col-sm-4 col-12 text-sm-left text-center">
+              <button class="btn btn-secondary" (click)="refresh()">
+                <i class="fas fa-redo-alt"></i>
+              </button>
+            </div>
+            <div class="col-sm-4 col-12 text-center">
+              <p class="mb-0 my-2">
+                {{ "TotalRecordsCount" | localize: totalItems }}
+              </p>
+            </div>
+            <div class="col-sm-4 col-12">
+              <div class="float-sm-right m-auto">
+                <abp-pagination-controls id="server" (pageChange)="getDataPage($event)">
+                </abp-pagination-controls>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,18 @@
+    <abp-modal-header [title]="'InstallationDetail' | localize" (onCloseClick)="bsModalRef.hide()">
+    </abp-modal-header>
+
+    <div class="modal-body">
+      <agm-map [latitude]="installation.lat" [longitude]="installation.lng">
+        <agm-marker [latitude]="installation.lat" [longitude]="installation.lng"></agm-marker>
+      </agm-map>
+    </div>
+
+    <div class="modal-footer justify-content-between">
+        <button
+          type="button"
+          class="btn btn-default"
+          (click)="bsModalRef.hide()"
+        >
+          {{ "Close" | localize }}
+        </button>
+    </div>

@@ -1,0 +1,140 @@
+﻿<div [@routerTransition]>
+  <!--<section class="content-header">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <h1>{{ "Home" | localize }}</h1>
+        </div>
+      </div>
+    </div>
+  </section>-->
+  <section class="content px-2">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-3 col-6">
+          <div class="small-box bg-success">
+            <div class="inner">
+              <h3>{{ homeDto.requestsHome.approved }}</h3>
+              <p>{{"ApprovedRequests" | localize}}</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-check"></i>
+            </div>
+            <a [routerLink]="['/app/requests/approved']" class="small-box-footer">
+              {{"View" | localize}}
+              <i class="fas fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-6">
+          <div class="small-box bg-info">
+            <div class="inner">
+              <h3>{{ homeDto.requestsHome.pending }}</h3>
+              <p>{{"PendingRequests" | localize}}</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-pause-circle"></i>
+            </div>
+            <a [routerLink]="['/app/requests/pending']"
+              class="small-box-footer" target="_blank">
+              {{"View" | localize}}
+              <i class="fas fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-6">
+          <div class="small-box bg-warning">
+            <div class="inner">
+              <h3>{{ homeDto.requestsHome.declined }}</h3>
+              <p>{{"DeclinedRequests" | localize}}</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-times"></i>
+            </div>
+            <a [routerLink]="['/app/requests/declined']" class="small-box-footer"
+              target="_blank">
+              {{"View" | localize}}
+              <i class="fas fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-6">
+          <div class="small-box bg-primary">
+            <div class="inner">
+              <h3>{{ homeDto.requestsHome.processed }}</h3>
+              <p>{{"ProcessedRequests" | localize}}</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <a [routerLink]="['/app/reports']" class="small-box-footer"
+              target="_blank">
+              {{"View" | localize}}
+              <i class="fas fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-sm-6 col-md-3">
+          <div class="info-box">
+            <span class="info-box-icon bg-primary elevation-1">
+              <i class="fas fa-video"></i>
+            </span>
+            <div class="info-box-content">
+              <span class="info-box-text">{{"TotalInstallations" | localize}}</span>
+              <span class="info-box-number">
+                {{ homeDto.installationsHome.installationsTotal }}
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-3">
+          <div class="info-box mb-3">
+            <span class="info-box-icon bg-success elevation-1">
+              <i class="fas fa-eye"></i>
+            </span>
+            <div class="info-box-content">
+              <span class="info-box-text">{{"ActiveInstallations" | localize}}</span>
+              <span class="info-box-number">
+                {{ homeDto.installationsHome.installationsActive }}
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix hidden-md-up"></div>
+        <div class="col-12 col-sm-6 col-md-3">
+          <div class="info-box mb-3">
+            <span class="info-box-icon bg-warning elevation-1">
+              <i class="fas fa-exclamation-triangle"></i>
+            </span>
+            <div class="info-box-content">
+              <span class="info-box-text">{{"InactiveInstallations" | localize}}</span>
+              <span class="info-box-number">
+                {{ homeDto.installationsHome.installationsInactive }}
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-3">
+          <div class="info-box mb-3">
+            <span class="info-box-icon bg-danger elevation-1">
+              <i class="fas fa-skull-crossbones"></i>
+            </span>
+            <div class="info-box-content">
+              <span class="info-box-text">{{"MalfunctionedInstallations" | localize}}</span>
+              <span class="info-box-number">
+                {{ homeDto.installationsHome.installationsMalfunction }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="10">
+          <agm-circle *ngFor="let city of homeDto.insightHome" [latitude]="city.city.lat" [longitude]="city.city.lng"
+            [radius]="city.requestsCount" [fillColor]="'red'" (mouseOut)="infoWindow.close();">
+          </agm-circle>
+        </agm-map>
+    </div>
+  </section>
+</div>

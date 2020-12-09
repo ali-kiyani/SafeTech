@@ -1,0 +1,7 @@
+{
+    "/app/auth-shipify": {
+        "target": "https://vaio-dell-mac.myshopify.com/admin/oauth/authorize?client_id=d256b63984e7d7e838344aa8fc7a6f3f&scope=write_orders,read_customers&redirect_uri=http://127.0.0.1:4200/auth/callback&state=1",
+        "secure": true,
+        "logLevel": "debug"
+    }
+}

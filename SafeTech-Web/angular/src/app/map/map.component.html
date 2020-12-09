@@ -1,0 +1,12 @@
+<form class="form-horizontal" autocomplete="off" #createRequestForm="ngForm" (ngSubmit)="save()">
+
+    <abp-modal-header [title]="'CreateNewRequest' | localize" (onCloseClick)="bsModalRef.hide()"></abp-modal-header>
+
+    <div class="modal-body">
+        <agm-map [latitude]="lat" [longitude]="lng" (mapClick)="mapClick($event)" [zoom]="12">
+            <agm-marker *ngIf="displayMarker" [latitude]="lat" [longitude]="lng"></agm-marker>
+          </agm-map>
+    </div>
+
+    <abp-modal-footer [saveDisabled]="!createRequestForm.form.valid" (onCancelClick)="bsModalRef.hide()">
+    </abp-modal-footer>
