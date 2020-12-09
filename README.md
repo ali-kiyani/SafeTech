@@ -58,4 +58,4 @@ https://www.dropbox.com/s/0zsxonds6yko03b/app-release.apk?dl=0
 
 7) Click on red markings and the CCTV images of detected person will show from that area<br/>
    Click on picture to see fullscren and press arrow keys to see other pictures<br/>
-   <img src="./readme_assets/web/6.png" alt="Your image title" width="200"/>
+   <img src="./readme_assets/web/5.png" alt="Your image title" width="200"/>
