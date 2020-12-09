@@ -3,7 +3,11 @@ SafeTech
 
 ## Problem:
 
+Child kidnapping, women harassment and robberies are on the rise in Pakistan. Incase of such incidents, the delay in the reporting of the case and old searching techniques used by the police makes it harder to find the person.
+
 ## Solution:
+
+A recent crime report showed that the safety index in Pakistan’s metropolitan cities like Karachi and Lahore is almost 45% i.e. more than half of the residents of these cities do not feel safe. The crime rates in Pakistan have been on the rise and certain areas in particular have been in the grips of an epidemic of child kidnapping, women harassment and robberies. Everyone is living in a state of continuous fear and outrage. Not only that if any of such incident occurs, the delay in the reporting of the case and old searching techniques used by the police makes it harder to find the person. The time after an incident occurs is very important, slightest delay can be disastrous. 
 
 Video: https://www.youtube.com/watch?v=iAerWbY7l6Y
 
