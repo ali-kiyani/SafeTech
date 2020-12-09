@@ -26,9 +26,8 @@ https://www.dropbox.com/s/0zsxonds6yko03b/app-release.apk?dl=0
 2) Click on "Create request" to submit a new complaint.
 <img src="./readme_assets/mobile/2.jpeg" alt="Your image title" width="200"/>
 
-3) Enter the details of complaint.
+3) Enter the details of complaint.<br/>
    Example: You can report a missing child and upload his photo (This photo will be used to search him)
-   
 <img src="./readme_assets/mobile/3.jpeg" alt="Your image title" width="200"/>
 
 4) Now your request is sent. As soon as the request is approved by law eforcement officer, AutoSearch will be started in all cameras.
@@ -41,8 +40,8 @@ https://www.dropbox.com/s/0zsxonds6yko03b/app-release.apk?dl=0
 2) Click on Login.
 <img src="./readme_assets/web/1.jpeg" alt="Your image title" width="200"/>
 
-SKIP TO 4
-3) Now you are in Dashboard. All the requests will be shown here. "Pending" will have all the requests waiting for approval (After approval the camera search using AI will start).
+3) Now you are in Dashboard. All the requests will be shown here.<br/>
+"Pending" will have all the requests waiting for approval (After approval the camera search using AI will start).
 <img src="./readme_assets/web/2.png" alt="Your image title" width="200"/>
 
 4) For demo purpose you can see old requests that are already processed and report generated. (It can take sometime for processing due to AI Algorithms running)
@@ -55,6 +54,6 @@ SKIP TO 4
 6) The red markings show where the person was detected. (Since the cameras would be in whole Pakistan we can use map so we can see exact trace)
    <img src="./readme_assets/web/4.png" alt="Your image title" width="200"/>
 
-7) Click on red markings and the CCTV images of detected person will show from that area
+7) Click on red markings and the CCTV images of detected person will show from that area<br/>
    Click on picture to see fullscren and press arrow keys to see other pictures
    <img src="./readme_assets/web/6.png" alt="Your image title" width="200"/>
