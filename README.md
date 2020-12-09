@@ -15,21 +15,22 @@ Video: https://www.youtube.com/watch?v=iAerWbY7l6Y
 
 ### Prerequisites
 
-Download the Android/IOS App from here https://www.dropbox.com/s/0zsxonds6yko03b/app-release.apk?dl=0
+Download the Android/IOS App from to submit a complaint
+https://www.dropbox.com/s/0zsxonds6yko03b/app-release.apk?dl=0
 
 ### Complaint Registration
 
 1) Click on Login.
 <img src="./readme_assets/mobile/1.jpeg" alt="Your image title" width="200"/>
 
-
-2) Click on Create request to make a new request.
+2) Click on "Create request" to submit a new complaint.
 <img src="./readme_assets/mobile/2.jpeg" alt="Your image title" width="200"/>
 
-3) Enter the details of the missing person.
+3) Enter the details of complaint.
+   Example: You can report a missing child and upload his photo (This photo will be used to search him)
 <img src="./readme_assets/mobile/3.jpeg" alt="Your image title" width="200"/>
 
-4) Now your request is sent.
+4) Now your request is sent. As soon as the request is approved my law eforcement officer, AutoSearch will be started in all cameras.
 <img src="./readme_assets/mobile/4.jpeg" alt="Your image title" width="200"/>
 
 ### Law Enforcement Officer
@@ -43,5 +44,5 @@ As a law enforcement officer you will receive the complaint and approve or decli
 
 
 2) Now you are in Dashboard. Click on Pending requests.
-<img src="./readme_assets/web/2.jpeg" alt="Your image title" width="200"/>
+<img src="./readme_assets/web/2.png" alt="Your image title" width="200"/>
 
